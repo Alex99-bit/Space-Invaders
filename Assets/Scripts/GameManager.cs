@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void StartGame()
+    {
+        
+    }
+
     // Se gestiona el estado del juego
     public void SetGameState(GameState newGameState)
     {
