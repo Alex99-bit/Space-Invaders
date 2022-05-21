@@ -954,7 +954,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8494109729313780674, guid: 1d1922660a29c4540975b8a8cfd9bb56, type: 3}
       propertyPath: numBalas
-      value: 1
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8494109729313780674, guid: 1d1922660a29c4540975b8a8cfd9bb56, type: 3}
       propertyPath: balasPool
@@ -962,7 +962,7 @@ PrefabInstance:
       objectReference: {fileID: 3982079723645005021, guid: 6af91f4813e003b4997d8d19360e5602, type: 3}
     - target: {fileID: 8494109729313780674, guid: 1d1922660a29c4540975b8a8cfd9bb56, type: 3}
       propertyPath: numBalasEnemy
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8494109729313780674, guid: 1d1922660a29c4540975b8a8cfd9bb56, type: 3}
       propertyPath: balasPoolEnemy
