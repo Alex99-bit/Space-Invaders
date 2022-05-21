@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 6636545871180573090}
   - component: {fileID: 6636545871180573100}
   - component: {fileID: 6636545871180573101}
+  - component: {fileID: 5131900356353202824}
+  - component: {fileID: 7839721005078556662}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -256,3 +258,33 @@ PolygonCollider2D:
       - {x: -1.1950173, y: -6.6111217}
       - {x: -0.8182642, y: -6.413775}
       - {x: -0.5132735, y: -6.2523093}
+--- !u!114 &5131900356353202824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6636545871180573089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: -5, y: 5}
+  m_UseGraphicAlpha: 1
+--- !u!114 &7839721005078556662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6636545871180573089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1

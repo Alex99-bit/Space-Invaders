@@ -7,6 +7,8 @@ TagManager:
   - Enemy2
   - Enemy1
   - Limit
+  - Score
+  - Health
   layers:
   - Default
   - TransparentFX

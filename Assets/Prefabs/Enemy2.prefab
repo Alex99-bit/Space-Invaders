@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3250329326587191668}
   - component: {fileID: 3250329326587191665}
   - component: {fileID: 3250329326587191666}
+  - component: {fileID: -1016648928681238051}
+  - component: {fileID: -1229509994813965764}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Enemy2
@@ -242,6 +244,36 @@ PolygonCollider2D:
       - {x: 3.4918287, y: -4.4662113}
       - {x: 3.7071161, y: -4.250924}
       - {x: 3.8506413, y: -3.9997551}
+--- !u!114 &-1016648928681238051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3250329326587191669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!114 &-1229509994813965764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3250329326587191669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: -5, y: 5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &3250329326958377564
 GameObject:
   m_ObjectHideFlags: 0
