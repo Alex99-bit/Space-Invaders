@@ -7,9 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager sharedInstance;
     public GameState currentGameState;
-    static int scorePlayer;
+    static int scorePlayer,vida;
     public GameObject pause, gameOver, victory, menu;
-    Text score;
+    Text score,health;
 
     private void Awake()
     {
@@ -25,7 +25,11 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
+        health = GameObject.FindGameObjectWithTag("Health").GetComponent<Text>();
+        scorePlayer = 0;
+        vida = 5;
         score.text = "Score: " + scorePlayer;
+        health.text = "Health: " + vida;
     }
 
     // Update is called once per frame
@@ -63,20 +67,31 @@ public class GameManager : MonoBehaviour
         if(newGameState == GameState.menu)
         {
             Time.timeScale = 0;
-
+            scorePlayer = 0;
+            score.text = "Score: "+scorePlayer;
         }
         else if(newGameState == GameState.inGame)
         {
             Time.timeScale = 1;
+
         }
         else if(newGameState == GameState.pause)
         {
             Time.timeScale = 0;
+            pause.SetActive(true);
         }
         else if(newGameState == GameState.gameOver)
         {
             Time.timeScale = 1;
+            gameOver.SetActive(true);
         }
+        else if(newGameState == GameState.victory)
+        {
+            Time.timeScale = 0;
+            victory.SetActive(true);
+        }
+
+        currentGameState = newGameState;
     }
 
     public int GetScore()
@@ -88,6 +103,16 @@ public class GameManager : MonoBehaviour
     {
         scorePlayer = score;
     }
+
+    public void SetVida(int health)
+    {
+        vida = health;
+    }
+
+    public int GetVida()
+    {
+        return vida;
+    }
 }
 
 public enum GameState
@@ -95,5 +120,6 @@ public enum GameState
     menu,
     pause,
     inGame,
-    gameOver
+    gameOver,
+    victory
 }

@@ -4,23 +4,14 @@ using UnityEngine;
 
 public class PlayerMecha : MonoBehaviour
 {
-    Rigidbody playerRB;
+    Rigidbody2D playerRB;
     float speed;
-
-    private void Awake()
-    {
-        // Object pooling: balas del player
-        for(int i = 0; i < 10; i++)
-        {
-
-        }
-    }
 
     // Start is called before the first frame update
     void Start()
     {
-        playerRB = GetComponent<Rigidbody>();
-        speed = 7;
+        playerRB = GetComponent<Rigidbody2D>();
+        speed = 9.5f;
     }
 
     // Update is called once per frame
@@ -30,6 +21,7 @@ public class PlayerMecha : MonoBehaviour
         if(GameManager.sharedInstance.currentGameState == GameState.inGame)
         {
             Movimiento();
+            Disparo();
         }
         else if(GameManager.sharedInstance.currentGameState == GameState.menu)
         {
@@ -45,6 +37,29 @@ public class PlayerMecha : MonoBehaviour
 
     void Disparo()
     {
+        if (Input.GetButtonDown("Fire1")) {
+            GameObject bullet = ObjectPooler.instance.GetPooledObject();
+            if (bullet != null)
+            {
+                bullet.transform.position = this.transform.position;
+                //bullet.transform.rotation = this.transform.rotation;
+                bullet.SetActive(true);
+            }
+        }
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            // Daño
+            GameManager.sharedInstance.SetVida(GameManager.sharedInstance.GetVida() - 1);
+        }
+
+        if(GameManager.sharedInstance.GetVida() <= 0)
+        {
+            // Game over
+            GameManager.sharedInstance.currentGameState = GameState.gameOver;
+        }
     }
 }
