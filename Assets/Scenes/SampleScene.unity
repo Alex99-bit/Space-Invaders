@@ -625,6 +625,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 41353077, guid: 675a867602a29d44f8b4698f93a9d123, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 622846561, guid: 675a867602a29d44f8b4698f93a9d123, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -637,10 +641,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7516865412588381136}
-    - target: {fileID: 1267873652, guid: 675a867602a29d44f8b4698f93a9d123, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1316688258, guid: 675a867602a29d44f8b4698f93a9d123, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -736,10 +736,6 @@ PrefabInstance:
     - target: {fileID: 1536525379926131308, guid: 675a867602a29d44f8b4698f93a9d123, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536525379926131308, guid: 675a867602a29d44f8b4698f93a9d123, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1536525380123258264, guid: 675a867602a29d44f8b4698f93a9d123, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -958,12 +954,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8494109729313780674, guid: 1d1922660a29c4540975b8a8cfd9bb56, type: 3}
       propertyPath: numBalas
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8494109729313780674, guid: 1d1922660a29c4540975b8a8cfd9bb56, type: 3}
       propertyPath: balasPool
       value: 
       objectReference: {fileID: 3982079723645005021, guid: 6af91f4813e003b4997d8d19360e5602, type: 3}
+    - target: {fileID: 8494109729313780674, guid: 1d1922660a29c4540975b8a8cfd9bb56, type: 3}
+      propertyPath: numBalasEnemy
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8494109729313780674, guid: 1d1922660a29c4540975b8a8cfd9bb56, type: 3}
+      propertyPath: balasPoolEnemy
+      value: 
+      objectReference: {fileID: 1941983229901578102, guid: 34f0b380a9d5c524aaeb77e5a27e778e, type: 3}
     - target: {fileID: 8494109729313780675, guid: 1d1922660a29c4540975b8a8cfd9bb56, type: 3}
       propertyPath: m_RootOrder
       value: 11

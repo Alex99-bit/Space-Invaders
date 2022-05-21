@@ -26,7 +26,8 @@ public class PlayerMecha : MonoBehaviour
         else if(GameManager.sharedInstance.currentGameState == GameState.menu)
         {
             // Si esta en el menu inicial, restaura todo
-
+            GameManager.sharedInstance.SetVida(5);
+            GameManager.sharedInstance.SetScore(0);
         }
     }
 
@@ -38,7 +39,7 @@ public class PlayerMecha : MonoBehaviour
     void Disparo()
     {
         if (Input.GetButtonDown("Fire1")) {
-            GameObject bullet = ObjectPooler.instance.GetPooledObject();
+            GameObject bullet = ObjectPooler.instance.GetPooledObjectPlayer();
             if (bullet != null)
             {
                 bullet.transform.position = this.transform.position;
@@ -50,7 +51,7 @@ public class PlayerMecha : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("BulletEnemy"))
         {
             // Daño
             GameManager.sharedInstance.SetVida(GameManager.sharedInstance.GetVida() - 1);
