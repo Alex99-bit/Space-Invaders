@@ -6,11 +6,11 @@ public class SpawnEnemy : MonoBehaviour
 {
     // Esta clase da la funcion de spawnear enemigos y moverse de un lado a otro (el spawn)
     public GameObject enemy;
-    public float seg;
+    public float seg, cooldown;
     Rigidbody2D rigidSpawn;
     bool cambioLado;
     public float speed;
-    [SerializeField]int i;
+    [SerializeField] int i;
     public int numero_enemigos;
 
     // Start is called before the first frame update
@@ -24,11 +24,22 @@ public class SpawnEnemy : MonoBehaviour
 
     private void Update()
     {
-        if(GameManager.sharedInstance.currentGameState == GameState.menu /*|| GameManager.sharedInstance.cambioNivel*/)
+        if(GameManager.sharedInstance.currentGameState == GameState.menu || GameManager.sharedInstance.cambioNivel)
         {
-            i = 0;
-            //StartCoroutine(spawnEnemys());
-            GameManager.sharedInstance.cambioNivel = false;
+            cooldown += Time.deltaTime;
+            if (cooldown < 1.5)
+            {
+                i = 0;
+            }
+            else
+            {
+                GameManager.sharedInstance.cambioNivel = false;
+            }
+        }
+
+        if (!GameManager.sharedInstance.cambioNivel)
+        {
+            cooldown = 0;
         }
     }
 

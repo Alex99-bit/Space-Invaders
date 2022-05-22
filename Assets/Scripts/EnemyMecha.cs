@@ -22,7 +22,7 @@ public class EnemyMecha : MonoBehaviour
         {
             // Movimiento de los enemigos
             cooldownMove += Time.deltaTime;
-            if (cooldownMove >= 2f)
+            if (cooldownMove >= 3f)
             {
                 //playerRB.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, playerRB.velocity.y);
                 // Aqui baja el enemigo

@@ -47,19 +47,19 @@ public class GameManager : MonoBehaviour
         health.text = "Health: " + vida;
 
         // Cambio de nivel
-        if(scorePlayer >= 180 && lvl == 0)
+        if(scorePlayer == 480 && lvl == 0)
         {
             // Pasa al segundo nivel
-            lvl++;
+            lvl = 1;
             cambioNivel = true;
         }
-        else if(scorePlayer >= 360 && lvl == 1)
+        else if(scorePlayer == 960 && lvl == 1)
         {
             // Pasa al tercer nivel
-            lvl++;
+            lvl = 2;
             cambioNivel = true;
         }
-        else if(scorePlayer >= 540 && lvl == 2)
+        else if(scorePlayer == 1440 && lvl == 2)
         {
             // Gana la partida
             SetGameState(GameState.victory);
