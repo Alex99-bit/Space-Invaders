@@ -10,34 +10,25 @@ public class SpawnEnemy : MonoBehaviour
     Rigidbody2D rigidSpawn;
     bool cambioLado;
     public float speed;
-    int i;
+    [SerializeField]int i;
     public int numero_enemigos;
 
     // Start is called before the first frame update
     void Start()
     {
         i = 0;
-        rigidSpawn = this.GetComponent<Rigidbody2D>();
+        rigidSpawn = GetComponent<Rigidbody2D>();
         cambioLado = false;
         StartCoroutine(spawnEnemys());
     }
 
     private void Update()
     {
-        if (GameManager.sharedInstance.currentGameState == GameState.inGame)
-        {
-            if (!cambioLado)
-            {
-                rigidSpawn.velocity = new Vector2(1, 0) * speed;
-            }
-            else
-            {
-                rigidSpawn.velocity = new Vector2(-1, 0) * speed;
-            }
-        }
-        else if(GameManager.sharedInstance.currentGameState == GameState.menu)
+        if(GameManager.sharedInstance.currentGameState == GameState.menu /*|| GameManager.sharedInstance.cambioNivel*/)
         {
             i = 0;
+            //StartCoroutine(spawnEnemys());
+            GameManager.sharedInstance.cambioNivel = false;
         }
     }
 
@@ -48,12 +39,12 @@ public class SpawnEnemy : MonoBehaviour
             // Subrutina que spawnea los enemigos 
             yield return new WaitForSeconds(seg);
 
-            if (GameManager.sharedInstance.currentGameState == GameState.inGame)
+            if (GameManager.sharedInstance.currentGameState == GameState.inGame && i < numero_enemigos)
             {
                 Instantiate(enemy, this.transform);
                 i++;
             }
-        }while (i<numero_enemigos);
+        }while (true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

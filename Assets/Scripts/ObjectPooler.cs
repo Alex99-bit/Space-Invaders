@@ -41,12 +41,6 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public GameObject GetPooledObjectPlayer()
     {
         for(int i = 0; i < balas.Count; i++)

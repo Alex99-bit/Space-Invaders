@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager sharedInstance;
     public GameState currentGameState;
-    static int scorePlayer,vida;
+    static int scorePlayer,vida,lvl;
+    public bool cambioNivel;
     public GameObject pause, gameOver, victory, menu;
     Text score,health;
 
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
             sharedInstance = this;
         }
         scorePlayer = 0;
+        lvl = 0;
+        cambioNivel = false;
     }
 
     // Start is called before the first frame update
@@ -35,9 +38,31 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && currentGameState == GameState.inGame)
         {
             SetGameState(GameState.pause);
+        }
+
+        score.text = "Score: " + scorePlayer;
+        health.text = "Health: " + vida;
+
+        // Cambio de nivel
+        if(scorePlayer >= 180 && lvl == 0)
+        {
+            // Pasa al segundo nivel
+            lvl++;
+            cambioNivel = true;
+        }
+        else if(scorePlayer >= 360 && lvl == 1)
+        {
+            // Pasa al tercer nivel
+            lvl++;
+            cambioNivel = true;
+        }
+        else if(scorePlayer >= 540 && lvl == 2)
+        {
+            // Gana la partida
+            SetGameState(GameState.victory);
         }
     }
 
@@ -56,6 +81,11 @@ public class GameManager : MonoBehaviour
         SetGameState(GameState.menu);
     }
 
+    public void GameOver()
+    {
+        SetGameState(GameState.gameOver);
+    }
+
     public void Salir()
     {
         Application.Quit();
@@ -67,13 +97,15 @@ public class GameManager : MonoBehaviour
         if(newGameState == GameState.menu)
         {
             Time.timeScale = 0;
+            menu.SetActive(true);
             scorePlayer = 0;
+            lvl = 0;
             score.text = "Score: "+scorePlayer;
+            cambioNivel = false;
         }
         else if(newGameState == GameState.inGame)
         {
             Time.timeScale = 1;
-
         }
         else if(newGameState == GameState.pause)
         {

@@ -60,7 +60,8 @@ public class PlayerMecha : MonoBehaviour
         if(GameManager.sharedInstance.GetVida() <= 0)
         {
             // Game over
-            GameManager.sharedInstance.currentGameState = GameState.gameOver;
+            GameManager.sharedInstance.SetVida(0);
+            GameManager.sharedInstance.GameOver();
         }
     }
 }

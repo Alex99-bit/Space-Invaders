@@ -14,6 +14,14 @@ public class BulletMovment : MonoBehaviour
         Dispara();
     }
 
+    private void Update()
+    {
+        if(GameManager.sharedInstance.currentGameState == GameState.menu)
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
+
     void Dispara()
     {
         if (bulletPlayer)
@@ -30,14 +38,14 @@ public class BulletMovment : MonoBehaviour
     {
         if (bulletPlayer)
         {
-            if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Limit"))
+            if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Limit") || collision.gameObject.CompareTag("BulletEnemy"))
             {
                 this.gameObject.SetActive(false);
             }
         }
         else
         {
-            if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Limit"))
+            if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Limit") || collision.gameObject.CompareTag("Bullet"))
             {
                 this.gameObject.SetActive(false);
             }

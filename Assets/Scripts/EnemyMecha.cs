@@ -5,26 +5,50 @@ using UnityEngine;
 public class EnemyMecha : MonoBehaviour
 {
     Rigidbody2D enemyRB;
+    float cooldownMove;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
         enemyRB = GetComponent<Rigidbody2D>();
         StartCoroutine(enemyShoot());
+        cooldownMove = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (GameManager.sharedInstance.currentGameState == GameState.inGame) 
+        {
+            // Movimiento de los enemigos
+            cooldownMove += Time.deltaTime;
+            if (cooldownMove >= 2f)
+            {
+                //playerRB.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, playerRB.velocity.y);
+                // Aqui baja el enemigo
+                enemyRB.velocity = new Vector2(0 * speed, -2 * speed);
+                cooldownMove = 0;
+            }
+            else
+            {
+                enemyRB.velocity = new Vector2(0 * speed, 0 * speed);
+            }
+        }
+        else if(GameManager.sharedInstance.currentGameState == GameState.menu)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     IEnumerator enemyShoot()
     {
-        while (GameManager.sharedInstance.currentGameState == GameState.inGame)
+        while (true)
         {
-            yield return new WaitForSeconds(1);
-            Disparo();
+            yield return new WaitForSeconds(3f);
+            if (GameManager.sharedInstance.currentGameState == GameState.inGame)
+            {
+                Disparo();
+            }
         }
     }
 
